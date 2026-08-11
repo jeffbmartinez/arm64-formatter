@@ -1,0 +1,50 @@
+{
+  "name": "arm64-formatter",
+  "displayName": "ARM64 Assembly Formatter",
+  "description": "Opinionated alignment formatting for ARM64 GNU assembly in VS Code.",
+  "version": "0.1.0",
+  "publisher": "jeffbmartinez",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffbmartinez/arm64-formatter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jeffbmartinez/arm64-formatter/issues"
+  },
+  "homepage": "https://github.com/jeffbmartinez/arm64-formatter#readme",
+  "categories": [
+    "Formatters",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "arm64",
+    "aarch64",
+    "assembly",
+    "gnu-as",
+    "formatter"
+  ],
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "activationEvents": [
+    "onLanguage:arm64-asm"
+  ],
+  "main": "./out/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "test": "npm run compile && node --test out/test/formatter.test.js",
+    "test:integration": "npm run compile && node out/test/runTest.js",
+    "package": "npm run compile && vsce package"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.5",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.2.1",
+    "glob": "^11.1.0",
+    "mocha": "^10.8.2",
+    "typescript": "^5.7.2"
+  }
+}

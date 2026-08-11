@@ -1,0 +1,10 @@
+.git/**
+.github/**
+.vscode/**
+src/**
+PLAN.md
+tsconfig.json
+**/*.ts
+**/*.map
+out/test/**
+node_modules/**
