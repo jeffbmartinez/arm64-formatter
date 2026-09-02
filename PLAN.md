@@ -15,7 +15,7 @@ Create a publish-ready TypeScript VS Code extension named `arm64-formatter` (“
   - Preserves leading indentation and operand text, while replacing tabs in formatted instruction lines with spaces. The shared operand column is an absolute document column, so preserved indentation participates in alignment.
   - Uses VS Code’s formatting `tabSize` option as the alignment boundary: with a tab size of 2, operands align to even columns; with 4, they align to four-space columns. The operand column is the next configured boundary after the furthest mnemonic end in the group, with at least two spaces after every mnemonic. Labels, directives, and comment-only lines do not contribute to this calculation.
   - Always emits spaces for alignment—even when the user’s editor is configured to insert tabs—matching the v1 preference for tabs-free formatted instruction lines.
-  - Recognizes `//`, `@`, and `/* ... */` comments, including multi-line block comments. Never format text inside comments; keep comment-only lines unchanged; preserve inline comments and align them within their group while keeping at least two spaces after instruction operands.
+  - Recognizes `//` and `/* ... */` comments, including multi-line block comments. Never format text inside comments; keep comment-only lines unchanged; preserve inline comments and align them within their group while keeping at least two spaces after instruction operands. Treat `@` as operand text, preserving relocation modifiers such as `symbol@PAGE` and `symbol@PAGEOFF`.
   - Preserves the document’s existing line-ending style and final-newline presence.
   - Returns one content-only edit for each changed line; unchanged lines and their line endings receive no edit.
 - For Format Selection, expand the requested range to every complete nonblank instruction group it intersects—including when the selected line is a label, directive, or comment-only line within that group—while leaving unrelated groups untouched.
@@ -26,7 +26,7 @@ Create a publish-ready TypeScript VS Code extension named `arm64-formatter` (“
 - Repeat alignment tests with a tab size of 4.
 - Test the two-space minimum, preserved indentation, tab-to-space conversion, and spaces-only output when `insertSpaces` is false.
 - Test group boundaries at blank lines and continuity across comment-only, label, and directive lines.
-- Test macro-style calls, directives/labels excluded from rewriting, all three comment syntaxes, and multi-line commented-out code remaining byte-for-byte unchanged.
+- Test macro-style calls, directives/labels excluded from rewriting, both AArch64 comment syntaxes, `@PAGE`/`@PAGEOFF` relocation modifiers, and multi-line commented-out code remaining byte-for-byte unchanged.
 - Test range formatting expansion from instruction, label/directive, and comment-only lines; no-op output for already formatted documents; per-line minimal edits; and preservation of LF/CRLF and final-newline state.
 - Add an extension-host smoke test confirming the formatter registers for `arm64-asm`.
 
@@ -36,4 +36,4 @@ Create a publish-ready TypeScript VS Code extension named `arm64-formatter` (“
 - “Tabs replaced by spaces” means every tab in a formatted instruction line becomes spaces; the user’s tab size controls the alignment boundary, not the emitted character type.
 - Inline `/* ... */` comments are handled like other trailing comments; multi-line block-comment content is always preserved exactly.
 - Labels and directives are untouched in v1, even when they appear within a nonblank alignment group.
-- The `@` comment marker is recognized only when it begins a comment token; it is not treated as a comment inside a quoted literal.
+- `@` is not a comment marker in this AArch64 formatter; it remains operand text even when used in Apple-style relocation modifiers.
