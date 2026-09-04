@@ -1,0 +1,25 @@
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1e2530"/>
+      <stop offset="1" stop-color="#11151c"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" rx="40" fill="url(#bg)"/>
+
+  <!-- alignment guide -->
+  <rect x="112" y="48" width="4" height="160" fill="#f0a03c" opacity="0.55"/>
+
+  <!-- mnemonic tokens (left of guide) -->
+  <rect x="48" y="66" width="46" height="14" rx="4" fill="#7fd0ff"/>
+  <rect x="48" y="106" width="34" height="14" rx="4" fill="#7fd0ff"/>
+  <rect x="48" y="146" width="40" height="14" rx="4" fill="#7fd0ff"/>
+  <rect x="48" y="186" width="28" height="14" rx="4" fill="#7fd0ff"/>
+
+  <!-- operand tokens (aligned start at guide) -->
+  <rect x="128" y="66" width="80" height="14" rx="4" fill="#e8ecf1"/>
+  <rect x="128" y="106" width="58" height="14" rx="4" fill="#e8ecf1"/>
+  <rect x="128" y="146" width="70" height="14" rx="4" fill="#e8ecf1"/>
+  <rect x="128" y="186" width="46" height="14" rx="4" fill="#e8ecf1"/>
+</svg>

@@ -4,7 +4,7 @@ src/**
 .gitignore
 .yarnrc
 vsc-extension-quickstart.md
-AGENTS.md
+CLAUDE.md
 PLAN.md
 **/tsconfig.json
 **/eslint.config.mjs
@@ -12,3 +12,4 @@ PLAN.md
 **/*.ts
 **/.vscode-test.*
 out/test/**
+images/icon.svg
