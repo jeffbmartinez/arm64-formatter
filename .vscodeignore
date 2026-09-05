@@ -5,6 +5,7 @@ src/**
 .yarnrc
 vsc-extension-quickstart.md
 CLAUDE.md
+DEVELOPMENT.md
 PLAN.md
 **/tsconfig.json
 **/eslint.config.mjs

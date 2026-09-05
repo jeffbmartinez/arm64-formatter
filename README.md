@@ -34,18 +34,6 @@ You can use any language extension or file association that supplies that ID. [A
 
 Choose **Format Document** or **Format Selection** for an `arm64-asm` document. Format-on-save works through VS Code’s normal `editor.formatOnSave` setting. If VS Code asks you to choose a formatter, select **ARM64 Assembly Formatter**.
 
-## Development
-
-```sh
-npm install
-npm run lint
-npm run test:unit
-npm test
-npm run package
-```
-
-Press F5 in VS Code to launch an Extension Development Host using the generated debug configuration.
-
 ## License
 
 [MIT](LICENSE)
